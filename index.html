@@ -1,16 +1,59 @@
----
-layout: default
-title: Сергей Мелодин
----
-
-<div class='posts'>
-  {% for post in site.posts %}
-
-    <div class='post-listing'>
-      <a class='title' href='{{ post.url }}'>{{ post.title }}</a>
-      <br>
-      <span class='published-on'>{{ post.date | date: "%-d %B %Y" }}</span>
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
+    <link rel="icon" sizes="16x16" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Сергей Мелодин</title>
+</head>
+<body class="bg-light">
+    <div class="container h-100 py-3 text-end">
+        <div class="row row-cols-1 h-100">
+            <div class="col align-self-center">
+                <h1>Сергей Мелодин</h1>
+                <p>Писатель&nbsp;статей&nbsp;и&nbsp;кода; Инженер&nbsp;электрики&nbsp;и&nbsp;контента; Senior&nbsp;hexlet.io&nbsp;worker.</p>
+                <div class="list-group text-break pb-3">
+                    <a class="list-group-item list-group-item-action" href="mailto:samelodyn@gmail.com" target="_blank">
+                        samelodyn@gmail.com
+                        <img src="https://unpkg.com/simple-icons@5.2.0/icons/maildotru.svg" width="32" alt="Иконка электронной почты" class="ms-2">
+                    </a>
+                    <a class="list-group-item list-group-item-action" href="https://ru.hexlet.io/u/melodyn" target="_blank">
+                        hexlet.io/u/melodyn
+                        <img src="hexlet.svg" width="32" alt="Иконка Hexlet" class="ms-2">
+                    </a>
+                    <a class="list-group-item list-group-item-action" href="https://github.com/melodyn" target="_blank">
+                        github.com/melodyn
+                        <img src="https://unpkg.com/simple-icons@5.2.0/icons/github.svg" width="32" alt="Иконка Github" class="ms-2">
+                    </a>
+                    <a class="list-group-item list-group-item-action" href="https://habr.com/users/melodyn" target="_blank">
+                        habr.com/users/melodyn
+                        <img src="habr.svg" width="32" alt="Иконка Хабр" class="ms-2">
+                    </a>
+                    <a class="list-group-item list-group-item-action" href="https://youtube.com/channel/UC6W_u37pEhDonQu4O_6JOeQ" target="_blank">
+                        youtube.com
+                        <img src="https://unpkg.com/simple-icons@5.2.0/icons/youtube.svg" width="32" alt="Иконка YouTube" class="ms-2">
+                    </a>
+                    <a class="list-group-item list-group-item-action" href="https://vk.com/melodyn" target="_blank">
+                        vk.com/melodyn
+                        <img src="https://unpkg.com/simple-icons@5.2.0/icons/vk.svg" width="32" alt="Иконка ВКонтакте" class="ms-2">
+                    </a>
+                    <a class="list-group-item list-group-item-action" href="https://instagram.com/melodynsa" target="_blank">
+                        instagram.com/melodynsa
+                        <img src="https://unpkg.com/simple-icons@5.2.0/icons/instagram.svg" width="32" alt="Иконка Instagram" class="ms-2">
+                    </a>
+                    <a class="list-group-item list-group-item-action" href="https://facebook.com/samelodyn" target="_blank">
+                        facebook.com/samelodyn
+                        <img src="https://unpkg.com/simple-icons@5.2.0/icons/facebook.svg" width="32" alt="Иконка Facebook" class="ms-2">
+                    </a>
+                    <a class="list-group-item list-group-item-action" href="https://twitter.com/samelodyn" target="_blank">
+                        twitter.com/samelodyn
+                        <img src="https://unpkg.com/simple-icons@5.2.0/icons/twitter.svg" width="32" alt="Иконка Twitter" class="ms-2">
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-
-  {% endfor %}
-</div>
+</body>
+</html>
