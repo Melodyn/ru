@@ -3,3 +3,7 @@ body {
     height: 100%;
     background-color: #fff!important;
 }
+
+.container {
+    max-width: 960px!important;
+}
