@@ -75,7 +75,7 @@
         </div>
     </div>
     <script>
-        pendo.initialize({
+        Promise.resolve(pendo.initialize({
             visitor: {
                 id:              uuid(),   // Required if user is logged in
                 // email:        // Recommended if using Pendo Feedback, or NPS Email
@@ -98,7 +98,7 @@
                 // You can add any additional account level key-values here,
                 // as long as it's not one of the above reserved names.
             }
-        });
+        })).then((res) => console.log('Pendo run', res)).catch(console.error);
     </script>
 </body>
 </html>
