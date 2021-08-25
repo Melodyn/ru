@@ -45,7 +45,7 @@
         })()
 
         Promise
-            .resolve(pendo.initialize({ visitor: { id: '70bd6653-6417-4bab-a3b6-e2fe0caf96ff' } }))
+            .resolve(pendo.initialize({ visitor: { id: uuid() }, account: { id: uuid() }}))
             .then((res) => console.log('Pendo run', res))
             .catch(console.error);
     </script>
