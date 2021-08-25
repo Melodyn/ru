@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
+    <link rel="icon" sizes="16x16" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Сергей Мелодин</title>
+    <script>
+        function uuid(){
+            var dt = new Date().getTime();
+            var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                var r = (dt + Math.random()*16)%16 | 0;
+                dt = Math.floor(dt/16);
+                return (c=='x' ? r :(r&0x3|0x8)).toString(16);
+            });
+            return uuid;
+        }
+
+        (function(apiKey){
+            (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=o._q||[];
+                v=['initialize','identify','updateOptions','pageLoad','track'];for(w=0,x=v.length;w<x;++w)(function(m){
+                    o[m]=o[m]||function(){o._q[m===v[0]?'unshift':'push']([m].concat([].slice.call(arguments,0)));};})(v[w]);
+                y=e.createElement(n);y.async=!0;y.src='https://cdn.pendo.io/agent/static/'+apiKey+'/pendo.js';
+                z=e.getElementsByTagName(n)[0];z.parentNode.insertBefore(y,z);})(window,document,'script','pendo');
+        })('288cce13-535d-4a32-6334-a9e49800f6b7');
+    </script>
+</head>
+<body class="bg-light">
+    <p>Запустить онбординг</p>
+    <button type="button" class="btn btn-primary" data-onboarding="onboarding_desktop1">Десктопный 1</button>
+    <button type="button" class="btn btn-primary" data-onboarding="onboarding_desktop2">Десктопный 2</button>
+    <button type="button" class="btn btn-primary" data-onboarding="onboarding_mobile">Мобильный</button>
+    <div id="onboarding"></div>
+    <script>
+        (() => {
+            const btns = document.querySelectorAll('button');
+            const onboardingContainer = document.querySelector('#onboarding');
+            btns.forEach(btn => btn.addEventListener('click', () => {
+                const onboardingId = btn.dataset.onboarding;
+                const onboardingName = btn.textContent;
+                onboardingContainer.innerHTML = `<h2 id="${onboardingId}">${onboardingName}</h2>`;
+            }))
+        })()
+
+        Promise
+            .resolve(pendo.initialize({ visitor: { id: '70bd6653-6417-4bab-a3b6-e2fe0caf96ff' } }))
+            .then((res) => console.log('Pendo run', res))
+            .catch(console.error);
+    </script>
+</body>
+</html>
