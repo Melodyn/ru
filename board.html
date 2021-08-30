@@ -58,24 +58,9 @@
     })()
 
     Promise//'f458dd88-fb6b-4540-9f61-8e88ce6f33c6'
-        .resolve(pendo.initialize({visitor: {id: uuid()}}))
-        .then(() => {
-            (function reloadingGuide() {
-                setTimeout(() => {
-                    console.log('pendo.dom', pendo.dom)
-                    if (!pendo.designerEnabled) {
-                        pendo.dom('._pendo-close-guide')[0].outerHTML = pendo.dom('._pendo-close-guide')[0].outerHTML; // remove direct event listener on close button
-
-                        function dismissUntilReload() {
-                            // guide dismissed until reload, at which point it will no longer be in the payload
-                            pendo.onGuideDismissed({"until": "reload"});
-                        }
-
-                        pendo.attachEvent(pendo.dom('._pendo-close-guide')[0], 'click', dismissUntilReload);
-                    }
-                }, 5000);
-            })();
-        })
+        .resolve(pendo.initialize({visitor: {id: 'f458dd88-fb6b-4540-9f61-8e88ce6f33c6'}}))
+        .then(() => pendo.showGuideById('FoGggz9g-b_Qfn9Q0Ydtt7gdwqQ'))
+        .then(console.log)
         .catch(console.error);
 
 
