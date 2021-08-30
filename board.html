@@ -47,29 +47,21 @@
 <button type="button" class="btn btn-primary" data-onboarding="onboarding_mobile">Мобильный</button>
 <div id="onboarding"></div>
 <script>
+    pendo.initialize({visitor: {id: "991bf2ab-bc3b-4e76-b5bd-d99cebfc23fe"}});
+
     (() => {
         const btns = document.querySelectorAll('button');
         const onboardingContainer = document.querySelector('#onboarding');
-        btns.forEach(btn => btn.addEventListener('click', () => {
-            const onboardingId = btn.dataset.onboarding;
-            const onboardingName = btn.textContent;
-            onboardingContainer.innerHTML = `<h2 id="${onboardingId}">${onboardingName}</h2>`;
-        }))
+        const guides = ['FoGggz9g-b_Qfn9Q0Ydtt7gdwqQ', 'RtjoQED2kB0oGDfdNlKM96zam3A', 'ZTnYYf5j1CM2KCng_fid3Dj_g5g'];
+        btns.forEach((btn, i) => btn.addEventListener('click', () => {
+            pendo.showGuideById(guides[i])
+        }));
+        // btns.forEach(btn => btn.addEventListener('click', () => {
+        //     const onboardingId = btn.dataset.onboarding;
+        //     const onboardingName = btn.textContent;
+        //     onboardingContainer.innerHTML = `<h2 id="${onboardingId}">${onboardingName}</h2>`;
+        // }));
     })();
-
-    (() => {
-        pendo.initialize({visitor: {id: "991bf2ab-bc3b-4e76-b5bd-d99cebfc23fe"}});
-        // showGuideById('FoGggz9g-b_Qfn9Q0Ydtt7gdwqQ')
-        setTimeout(() => console.log(pendo.isReady(), pendo.showGuideById('FoGggz9g-b_Qfn9Q0Ydtt7gdwqQ')), 5000);
-    })();
-
-    // Promise//'f458dd88-fb6b-4540-9f61-8e88ce6f33c6'
-    //     .resolve()
-    //     .then(() => pendo.showGuideById('FoGggz9g-b_Qfn9Q0Ydtt7gdwqQ'))
-    //     .then(console.log)
-    //     .catch(console.error);
-
-
 </script>
 </body>
 </html>
