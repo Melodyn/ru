@@ -44,12 +44,13 @@
             }))
         })()
 
-        Promise //f458dd88-fb6b-4540-9f61-8e88ce6f33c6
-            .resolve(pendo.initialize({ visitor: { id: uuid() }, account: { id: uuid() }}))
+        Promise
+            .resolve(pendo.initialize({ visitor: { id: 'f458dd88-fb6b-4540-9f61-8e88ce6f33c6' } }))
             .then((res) => console.log('Pendo run', res))
             .catch(console.error);
 
         (function reloadingGuide(dom) {
+            console.log('pendo.dom', pendo.dom)
             if(!pendo.designerEnabled) {
                 dom('._pendo-close-guide')[0].outerHTML = dom('._pendo-close-guide')[0].outerHTML; // remove direct event listener on close button
 
