@@ -47,20 +47,17 @@
 <button type="button" class="btn btn-primary" data-onboarding="onboarding_mobile">Мобильный</button>
 <div id="onboarding"></div>
 <script>
-    pendo.initialize({visitor: {id: "991bf2ab-bc3b-4e76-b5bd-d99cebfc23fe"}});
+    const userId = (new URL(window.location.href)).search.replace('?', '');
+    console.log({ userId });
+    pendo.initialize({visitor: {id: userId}});
 
     (() => {
         const btns = document.querySelectorAll('button');
-        const onboardingContainer = document.querySelector('#onboarding');
-        const guides = ['FoGggz9g-b_Qfn9Q0Ydtt7gdwqQ', 'RtjoQED2kB0oGDfdNlKM96zam3A', 'ZTnYYf5j1CM2KCng_fid3Dj_g5g'];
+        const guides = ['Десктоп 1', 'Десктоп 2', 'Мобильный от Десктоп 1'];
         btns.forEach((btn, i) => btn.addEventListener('click', () => {
-            pendo.showGuideById(guides[i])
+            console.log('run guide', guides[i])
+            pendo.showGuideByName(guides[i])
         }));
-        // btns.forEach(btn => btn.addEventListener('click', () => {
-        //     const onboardingId = btn.dataset.onboarding;
-        //     const onboardingName = btn.textContent;
-        //     onboardingContainer.innerHTML = `<h2 id="${onboardingId}">${onboardingName}</h2>`;
-        // }));
     })();
 </script>
 </body>
