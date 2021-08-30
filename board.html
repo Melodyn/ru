@@ -57,8 +57,8 @@
         }))
     })()
 
-    Promise
-        .resolve(pendo.initialize({visitor: {id: 'f458dd88-fb6b-4540-9f61-8e88ce6f33c6'}}))
+    Promise//'f458dd88-fb6b-4540-9f61-8e88ce6f33c6'
+        .resolve(pendo.initialize({visitor: {id: uuid()}}))
         .then(() => {
             (function reloadingGuide() {
                 setTimeout(() => {
