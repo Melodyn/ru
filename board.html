@@ -55,10 +55,12 @@
             const onboardingName = btn.textContent;
             onboardingContainer.innerHTML = `<h2 id="${onboardingId}">${onboardingName}</h2>`;
         }))
-    })()
+    })();
 
-    pendo.initialize({visitor: {id: 'f458dd88-fb6b-4540-9f61-8e88ce6f33c6'}})
-    pendo.showGuideById('FoGggz9g-b_Qfn9Q0Ydtt7gdwqQ')
+    (async () => {
+        await pendo.initialize({visitor: {id: 'f458dd88-fb6b-4540-9f61-8e88ce6f33c6'}})
+        pendo.showGuideById('FoGggz9g-b_Qfn9Q0Ydtt7gdwqQ');
+    })();
 
     // Promise//'f458dd88-fb6b-4540-9f61-8e88ce6f33c6'
     //     .resolve()
