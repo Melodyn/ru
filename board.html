@@ -41,24 +41,25 @@
     </script>
 </head>
 <body class="bg-light">
-<p>Запустить онбординг</p>
-<button type="button" class="btn btn-primary" data-onboarding="onboarding_desktop1">Десктопный 1</button>
-<button type="button" class="btn btn-primary" data-onboarding="onboarding_desktop2">Десктопный 2</button>
-<button type="button" class="btn btn-primary" data-onboarding="onboarding_mobile">Мобильный</button>
-<div id="onboarding"></div>
-<script>
-    const userId = (new URL(window.location.href)).search.replace('?', '');
-    console.log({ userId });
-    pendo.initialize({visitor: {id: userId}});
+    <p>Запустить онбординг</p>
+    <button type="button" class="btn btn-primary" data-onboarding="onboarding_desktop1">С нуля без ДЗ</button>
+    <button type="button" class="btn btn-primary" data-onboarding="onboarding_desktop2">С нуля с ДЗ</button>
+    <button type="button" class="btn btn-primary" data-onboarding="onboarding_mobile">Для опытных с ДЗ</button>
 
-    (() => {
-        const btns = document.querySelectorAll('button');
-        const guides = ['Десктоп 1', 'Десктоп 2', 'Мобильный от Десктоп 1'];
-        btns.forEach((btn, i) => btn.addEventListener('click', () => {
-            console.log('run guide', guides[i])
-            pendo.showGuideByName(guides[i])
-        }));
-    })();
-</script>
+    <script>
+        const userIdFormUrl = (new URL(window.location.href)).search.replace('?', '');
+        const userId = userIdFormUrl || uuid();
+        console.log({ userId });
+        pendo.initialize({visitor: {id: userId}});
+
+        (() => {
+            const btns = document.querySelectorAll('button');
+            btns.forEach((btn) => btn.addEventListener('click', () => {
+                const guideName = btn.textContent;
+                console.log('Run guide', guideName)
+                pendo.showGuideByName(guideName);
+            }));
+        })();
+    </script>
 </body>
 </html>
