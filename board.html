@@ -20,23 +20,17 @@
             return uuid;
         }
 
-        (function (apiKey) {
-            (function (p, e, n, d, o) {
-                var v, w, x, y, z;
-                o = p[d] = p[d] || {};
-                o._q = o._q || [];
-                v = ['initialize', 'identify', 'updateOptions', 'pageLoad', 'track'];
-                for (w = 0, x = v.length; w < x; ++w) (function (m) {
-                    o[m] = o[m] || function () {
-                        o._q[m === v[0] ? 'unshift' : 'push']([m].concat([].slice.call(arguments, 0)));
-                    };
-                })(v[w]);
-                y = e.createElement(n);
-                y.async = !0;
-                y.src = 'https://cdn.pendo.io/agent/static/' + apiKey + '/pendo.js';
-                z = e.getElementsByTagName(n)[0];
-                z.parentNode.insertBefore(y, z);
-            })(window, document, 'script', 'pendo');
+        (function(apiKey){
+            (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=o._q||[];
+                v=['initialize','identify','updateOptions','pageLoad','track'];for(w=0,x=v.length;w<x;++w)(function(m){
+                    o[m]=o[m]||function(){o._q[m===v[0]?'unshift':'push']([m].concat([].slice.call(arguments,0)));};})(v[w]);
+                y=e.createElement(n);y.async=!0;y.src='https://cdn.pendo.io/agent/static/'+apiKey+'/pendo.js';
+                z=e.getElementsByTagName(n)[0];z.parentNode.insertBefore(y,z);})(window,document,'script','pendo');
+
+            const userIdFormUrl = (new URL(window.location.href)).search.replace('?', '');
+            const userId = userIdFormUrl || uuid();
+            console.log({ userId });
+            pendo.initialize({visitor: {id: userId}});
         })('288cce13-535d-4a32-6334-a9e49800f6b7');
     </script>
 </head>
@@ -47,11 +41,6 @@
     <button type="button" class="btn btn-primary" data-onboarding="onboarding_mobile">Для опытных с ДЗ</button>
 
     <script>
-        const userIdFormUrl = (new URL(window.location.href)).search.replace('?', '');
-        const userId = userIdFormUrl || uuid();
-        console.log({ userId });
-        pendo.initialize({visitor: {id: userId}});
-
         (() => {
             const btns = document.querySelectorAll('button');
             btns.forEach((btn) => btn.addEventListener('click', () => {
